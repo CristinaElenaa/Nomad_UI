@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <form class="form-container" (submit)="emitData()">
+                <div class="section-container">
+                    <span>Choose a title</span>
+                    <input type="text" id="title" name="title" [(ngModel)]="name" (ngModelChange)="emitData()">
+
+                </div>
+                <div class="section-container extra-height">
+                    <span>Add a description</span>
+                    <textarea class="input-description" type="text" id="description" name="description"
+                        placeholder="Share what makes your place special..." [(ngModel)]="description" (ngModelChange)="emitData()">
+                    </textarea>
+                </div>
+                <!-- <button type="submit">Submit</button> -->
+            </form>
+
+

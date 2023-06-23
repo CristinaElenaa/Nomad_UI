@@ -1,0 +1,36 @@
+p {
+    font-family: Garamond, serif;
+}
+
+.error {
+    color: #f00;
+}
+
+.dragarea {
+    font-size: 1.5rem;
+    border: 1.5px dashed #bbb;
+    padding: 1.5rem;
+    background-color: #fff;
+    color: #bbb;
+    width: auto;
+    height: 200px;
+    position: relative;
+    /* left: 30px; */
+}
+
+.dragarea a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.droparea {
+    font-size: 1.5rem;
+    border: 1.5px dashed #bbb;
+    padding: 1.5rem;
+    background-color: #eff;
+    color: #aaa;
+    width: auto;
+    height: 200px;
+    position: relative;
+    left: 30px;
+}

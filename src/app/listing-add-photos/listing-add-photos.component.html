@@ -1,0 +1,9 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <span>Add some photos of your listing</span>
+            <div class="img-upload">
+                <app-image-upload (filesSelected)="onFilesSelected($event)" [sentFiles]="selectedFiles"></app-image-upload>
+                <!-- <button  (click)="emitData()">Add</button> -->
+                <button class="button-17 button-back" (click)="emitData()">
+                    Add</button>
+            </div>

@@ -1,0 +1,99 @@
+<div class="row" *ngIf="member" style="margin-top: 120px;">
+
+    <div *ngIf="editUserForm.dirty" data-te-chip-init data-te-ripple-init
+        class=" [word-wrap: break-word] w-75 mx-[10px] flex h-[32px] bg-light text-danger items-center justify-between rounded-[16px] border border-[#dc4c64] bg-[#eceff1] bg-[transparent] px-[12px] py-0 text-[13px] font-normal normal-case leading-loose text-[#4f4f4f] shadow-none transition-[opacity] duration-300 ease-linear hover:border-[#dc4c64] hover:!shadow-none dark:text-neutral-200"
+        data-te-ripple-color="red" style=" margin-top: 30px; ">
+        You have made changes. Any unsaved changes will be lost
+        <!-- <span data-te-chip-close
+            class="float-right w-4 cursor-pointer pl-[8px] text-[16px] text-[#afafaf] opacity-[.53] transition-all duration-200 ease-in-out hover:text-[#8b8b8b] dark:text-neutral-400 dark:hover:text-neutral-100">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="h-3 w-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </span> -->
+    </div>
+
+    <div class="container">
+        <div class="upper-container">
+            <div class="right-container">
+                <div class="card">
+                    <img src={{member.photoUrl}}>
+                    <p>{{member.firstName}}</p>
+                    <button class="button-17 button-back" (click)="openModal()">
+                        Change profile picture</button>
+                    <button class="button-17" form="editUserForm" type="submit" [disabled]="!editUserForm.dirty">Save
+                        Changes</button>
+                    <button class="button-17 button-back"  [routerLink]="['/profile', member.id]">
+                        Back to profile</button>
+                </div>
+            </div>
+
+            <div class="left-container">
+                <form #editUserForm="ngForm" id="editUserForm" (ngSubmit)="updateMember()">
+                    <div class="details-card">
+                        <span class="bottom-border">Name
+                            <input type="text" aria-label="First name" style="margin: 2px 5px;" placeholder="First-Name"
+                                value={{member.firstName}} [(ngModel)]="member.firstName" name="firstName"
+                                class="rounded-0 relative m-2 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                            <input type="text" aria-label="Last name" placeholder="Last-Name" name="lastName"
+                                [(ngModel)]="member.lastName" value={{member.lastName}}
+                                class="relative m-0 -ml-px block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                        </span>
+
+                        <span class="bottom-border">Email
+                            <input type="text" aria-label="Email" style="margin: 2px 5px;" placeholder="Email"
+                                value={{member.email}} [(ngModel)]="member.email" name="email"
+                                class="rounded-0 relative m-2 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                        </span>
+                        <span class="bottom-border">Phone
+                            <input type="text" aria-label="PhoneNumber" style="margin: 2px 5px;"
+                                placeholder="Phone Number" value={{member.phoneNumber}} name="phoneNumber"
+                                [(ngModel)]="member.phoneNumber"
+                                class="rounded-0 relative m-2 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+
+                        </span>
+                        <span style="display: flex; align-items: center; justify-content: center;">Address
+                            <span>
+                                <input type="text" aria-label="Street" style="margin: 2px 5px;" placeholder="Street"
+                                    value={{member.street}} [(ngModel)]="member.street" name="street"
+                                    class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                            </span>
+
+                            <span>
+                                <input type="text" label="Number" aria-label="Number"
+                                    style="margin: 2px 5px; width: 1%;" placeholder="Number" value={{member.number}}
+                                    [(ngModel)]="member.number" name="number"
+                                    class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                            </span>
+
+                            <span>
+                                <input type="text" aria-label="PostalCode" style="margin: 2px 5px;"
+                                    placeholder="Postal Code" value={{member.postalCode}}
+                                    [(ngModel)]="member.postalCode" name="postalCode"
+                                    class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                            </span>
+
+                            <span>
+                                <input type="text" aria-label="City" style="margin: 2px 5px;" placeholder="City"
+                                    name="city" value={{member.city}} [(ngModel)]="member.city"
+                                    class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                            </span>
+
+                            <span>
+                                <input type="text" aria-label="County" style="margin: 2px 5px;" placeholder="County"
+                                    name="county" value={{member.county}} [(ngModel)]="member.county"
+                                    class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                            </span>
+
+                            <span>
+                                <input type="text" aria-label="Country" style="margin: 2px 5px;" placeholder="Country"
+                                    name="country" value={{member.country}} [(ngModel)]="member.country"
+                                    class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                            </span>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,83 @@
+.container {
+    width: 76%;
+    height: 300px;
+    top: 40px;
+    bottom: 0px;
+    position: relative;
+    margin: 8px 0px 1px 8px;
+    padding: 60px 8px 0px 8px;
+    display: flex;
+    flex-direction: column;
+    font-family: Garamond, serif;
+}
+
+.page{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+}
+
+.text {
+    font-family: Garamond, serif;
+    color: black;
+}
+
+.location {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: auto;
+    padding: 10px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+     background-color: rgb(185, 134, 134); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Garamond, serif;
+    font-size: 18px;
+    position: relative;
+}
+
+.example-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 150px;
+    width: auto;
+    padding: 20px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 10px;
+}
+
+.example-form p{
+    display: flex;
+    flex-direction: row;
+}
+
+.table-style{
+    display: flex;
+    flex-direction: row;
+    margin: 12px;
+}
+
+.input-text {
+    width: 50%;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+
+td {
+    padding-right: 8px;
+}

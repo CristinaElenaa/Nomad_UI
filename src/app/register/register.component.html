@@ -1,0 +1,78 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="container">
+    <div>
+        <form class="form-container card" [formGroup]="registerForm" (ngSubmit)="register()">
+            <span class="form-title">Join us!</span>
+            <div class="form-content">
+
+                <div style="display: flex; flex-direction: column;">
+                    <div style="display: flex; flex-direction: row;">
+
+                        <app-text-input class="rounded-5 bg-primary-600"
+                            [formControl]="$any(registerForm.controls['firstName'])"
+                            [label]="'First Name'"></app-text-input>
+
+                        <app-text-input [formControl]="$any(registerForm.controls['lastName'])"
+                            [label]="'Last Name'"></app-text-input>
+                    </div>
+                    <div style="display: flex; flex-direction: row;">
+
+                        <app-text-input [formControl]="$any(registerForm.controls['email'])"
+                            [label]="'Email'"></app-text-input>
+
+                        <app-text-input [formControl]="$any(registerForm.controls['phoneNumber'])"
+                            [label]="'Phone Number'"></app-text-input>
+                    </div>
+
+                    <app-text-input [formControl]="$any(registerForm.controls['password'])"
+                        [label]="'Password'" type="password"></app-text-input>
+
+                    <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])"
+                        [label]="'Confirm Password'" type="password"></app-text-input>
+
+                    <div style="display: flex; flex-direction: row;">
+
+                        <app-text-input [formControl]="$any(registerForm.controls['number'])"
+                            [label]="'Number'"></app-text-input>
+
+                        <app-text-input [formControl]="$any(registerForm.controls['street'])"
+                            [label]="'Street'"></app-text-input>
+                    </div>
+
+                    <div style="display: flex; flex-direction: row;">
+
+                        <app-text-input [formControl]="$any(registerForm.controls['postalCode'])"
+                            [label]="'Postal Code'"></app-text-input>
+
+                        <app-text-input [formControl]="$any(registerForm.controls['city'])"
+                            [label]="'City'"></app-text-input>
+                    </div>
+
+                    <div style="display: flex; flex-direction: row;">
+
+                        <app-text-input [formControl]="$any(registerForm.controls['county'])"
+                            [label]="'County'"></app-text-input>
+
+                        <app-text-input [formControl]="$any(registerForm.controls['country'])"
+                            [label]="'Country'"></app-text-input>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="row" *ngIf="validationErrors">
+                <ul class="text-danger">
+                    <li *ngFor="let error of validationErrors">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" class="submit-button" [disabled]="!registerForm.valid" >Create account</button>
+            <span class="form-footer">Already joined us? Login <a routerLink="/login">here</a></span>
+        </form>
+        <!-- <div class="image-wrapper">
+            <img src="./assets/passport.png" alt="girl">
+        </div> -->
+    </div>
+</div>

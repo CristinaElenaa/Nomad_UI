@@ -1,0 +1,67 @@
+<!-- Container for demo purpose -->
+<div style="margin-top: 100px; width: 100%; height: 80%;
+ display: flex; flex-direction: row; justify-content: center;">
+
+
+<div class="container my-5 mx-auto md:px-6 xl:px-96" style="width: 45%;">
+
+    <section class="mb-12">
+        <h5 class="mb-10 text-center text-xl font-semibold">Review the listing</h5>
+
+        <form  #editUserForm="ngForm" id="addListingreviewForm" (submit)="postListingReview(editUserForm.value, listingId, bookingId)">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" name="rating"
+                 placeholder="name@example.com" [(ngModel)]="listingReview.rating">
+                <label for="floatingInput">Please rate your stay from 1 to 5</label>
+            </div>
+
+            <div class="form-floating my-5">
+                <textarea [(ngModel)]="listingReview.content" name="content" class="form-control"
+                 placeholder="Leave a comment here" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                <label for="floatingTextarea2" >Message</label>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <button type="submit" class="btn btn-warning px-5"
+                 
+                >Publish</button>
+            </div>
+
+        </form>
+    </section>
+</div>
+
+    <div class="container my-5 mx-auto md:px-6 xl:px-96" style="width: 45%;">
+
+        <section class="mb-12">
+            <h5 class="mb-10 text-center text-xl font-semibold">Review the host</h5>
+
+            <form  #UserReviewForm="ngForm" id="addUserReviewForm" (submit)="postUserReview(UserReviewForm.value, hostId, bookingId)">
+                <div class="form-floating mb-3">
+                    <input type="email" [(ngModel)]="userReview.rating" name="userRating" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Please rate your stay from 1 to 5</label>
+                </div>
+
+                <div class="form-floating my-5">
+                    <textarea  [(ngModel)]="userReview.content" name="userContent" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Message</label>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <button type="submit"
+                    
+                     class="btn btn-warning text-dark px-5">Publish</button>
+                </div>
+
+            </form>
+        </section>
+    </div>
+</div>
+<div style="display: flex; justify-content: center;">
+    <button type="submit"
+                    
+    class="btn btn-warning text-dark px-5">Publish</button>
+
+</div>

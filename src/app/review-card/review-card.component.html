@@ -1,0 +1,17 @@
+
+<div *ngIf="userReviews.length!= undefined">
+    <mat-card class="example-card" *ngFor="let review of userReviews">
+        <mat-card-title-group>
+            <mat-card-title>{{review.authorFirstName}} {{review.authorLastName}}</mat-card-title>
+            <mat-card-subtitle>{{review.rating}} <i class="fa fa-star-o"></i></mat-card-subtitle>
+            <img (click)="reloadComponent(review.authorId)" mat-card-sm-image src="./assets/traveler.jpg">
+        </mat-card-title-group>
+        <mat-card-content>
+            {{review.content}}
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div *ngIf="userReviews.length === undefined">
+    <p>No reviews yet!</p>
+</div>

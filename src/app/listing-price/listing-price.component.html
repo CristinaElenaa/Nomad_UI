@@ -1,0 +1,19 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <div class="quantity-container">
+                <div class="quantity">
+                    <button class="quantity-btn quantity-minus" (click)="decrementPrice()" ></button>
+                    <input value={{this.price}} type="submit" class="quantity-input" [(ngModel)]="price" min="1">
+                    <button class="quantity-btn quantity-plus" (click)="incrementPrice()"></button>
+                    
+                </div>
+                <div>
+                    <p>Price is set per night</p>
+                </div>
+                <!-- <div style="display: flex; justify-content: center; margin: 5px; font-family: Garamons, sans-serif;">
+                    <button type="submit" (click)="emitData()" class="btn  text-dark px-5">Set price</button>
+                  </div> -->
+            </div>
+
+            <!-- <div style="margin-top: 100px; margin-bottom: 100px;"><button (click)="emitData()">submit</button></div> -->

@@ -1,0 +1,83 @@
+
+
+.cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 10px;
+  font-family: Garamond, serif;
+}
+
+.plan-container {
+  width: 300px;
+  max-height: 70px;
+  margin: 5px;
+  padding: 10px;
+  /* padding: 8px 8px 1px 20px; */
+  font-size: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid 0.2px rgb(146, 145, 145);
+}
+
+/* span {
+  background-color: brown;
+  display: flex;
+  align-items: center;
+  font-family: Garamond, serif;
+  font-size: 25px;
+  margin: 10px 0px 30px 0px;
+  justify-content: center;
+  position: relative;
+  left: 32px;
+} */
+
+.quantity {
+  display: flex;
+  align-items: end;
+  align-items: center;
+}
+
+.quantity-input {
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  /* border-bottom: 1px solid #060606; */
+  font-size: 16px;
+  /* margin-right: 10px; */
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.quantity-plus:before {
+  content: "+";
+  font-size: 18px;
+}
+
+.quantity-minus:before {
+  content: "-";
+  font-size: 18px;
+}
+
+.quantity-btn:before {
+  display: block;
+  text-align: center;
+  line-height: 30px;
+}
+
+.quantity-btn:hover:before {
+  color: #000;
+}

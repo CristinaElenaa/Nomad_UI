@@ -1,0 +1,140 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="container" *ngIf="listing">
+
+
+    <span class="listing-title">{{listing.name}}</span>
+    <a class="listing-location" (click)="openMap($event)">in {{address}} </a>
+
+    <!-- <div class="image-container">
+        <carousel [isAnimated]="true" class="w-90" >
+            <slide *ngFor="let photo of listing.photos">
+                <img [src]="photo.url" alt="first slide" style="display: block; max-width: 1000px; max-height: 400px;">
+            </slide>
+        </carousel>
+    </div>  -->
+
+     <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12" >
+        <div class="-m-1 flex flex-wrap md:-m-2" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div class="flex w-1/3 flex-wrap" *ngFor="let photo of listing.photos| slice:0:3">
+                <div class="w-full p-1 md:p-2" >
+                    <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                        [src]="photo.url" />
+                </div>
+            </div>
+           
+        </div>
+    </div> 
+
+
+
+    <div class="horizontal-container">
+        <div class="description-container">
+
+            <div class="privacy-plan-host">
+                <div class="privacy-plan">
+                    <span>{{listing.privacyType}} hosted by {{listing.hostFirstName}} {{listing.hostLastName}}</span>
+                    <span>{{listing.capacity}} guests {{listing.bedroomCount}} bedrooms {{listing.bedCount}} beds
+                        {{listing.bathroomCount}}
+                        bath</span>
+                </div>
+                <p class="host-logo" [routerLink]="['/profile', listing.hostId]"><img src={{listing.hostMainPhotoUrl}}
+                        alt="hostLogo"></p>
+            </div>
+
+            <div class="description">{{listing.description}}</div>
+
+            <div class="amenities-container">
+                <span>What this place offers:</span>
+                <div class="amenities">
+                    <mat-chip-list>
+                        <mat-chip *ngIf="listing.hasWiFi">Wifi</mat-chip>
+                        <mat-chip *ngIf="listing.hasTv">Tv</mat-chip>
+                        <mat-chip *ngIf="listing.hasParking">Parking</mat-chip>
+                        <mat-chip *ngIf="listing.hasAirConditioning">Air Conditioning</mat-chip>
+                    </mat-chip-list>
+                </div>
+            </div>
+            <div class="calendar-container" style="margin-right:10px">
+                <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                    <bs-daterangepicker-inline [datesDisabled]="occupiedDates"></bs-daterangepicker-inline>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="price-container">
+            <div class="price-review">
+                <p>{{listing.price}}lei/night</p>
+                <p>{{listing.totalRating.toFixed(1)}}
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </p>
+
+            </div>
+            <form>
+                <div class="form-question">
+                    <div class="form-question__title">
+                        <span>Select the dates</span>
+                    </div>
+                    <div class="col-xs-12 col-12 col-md-4 form-group mb-3 w-90" style="width: 40%;">
+                        <input type="text" placeholder="Check-In" class="form-control" bsDatepicker
+                            [(ngModel)]="booking.checkIn" name="checkIn" [datesDisabled]="occupiedDates" 
+                            [bsConfig]="{ adaptivePosition: true }" [minDate]="minDateFirstDatepicker">
+                    </div>
+
+                    <div class="col-xs-12 col-12 col-md-4 form-group mb-3 w-90" style="width: 40%;">
+                        <input type="text" placeholder="Check-Out" class="form-control" bsDatepicker
+                            [(ngModel)]="booking.checkOut" name="checkOut" [datesDisabled]="occupiedDates"
+                            [bsConfig]="{ adaptivePosition: true }" [minDate]="getMinCheckOutDate()"
+                            [bsValue]="getMinCheckOutDate()">
+                    </div>
+                </div>
+                <div class="guests">
+                    <p>Guests</p>
+                    <div class="quantity-button">
+                        <button class="quantity-btn quantity-minus" (click)="decrementGuestQuantity()"></button>
+                        <input type="number" class="quantity-input" name="numberOfGuests" [value]="numberOfGuests"
+                            [(ngModel)]="booking.numberOfGuests">
+
+                        <button class="quantity-btn quantity-plus" (click)="incrementGuestQuantity()"></button>
+                    </div>
+                </div>
+                <div class="reserve">
+                    <button class="reserve-button">
+                        <span routerLink="/checkout" (click)="postBooking()">Reserve</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="review-container" *ngIf="isReviewed">
+        <mat-card class="example-card" style="width: 50%;" *ngFor="let item of listingReviews">
+            <mat-card-title-group>
+                <mat-card-title>{{item.authorFirstName}}</mat-card-title>
+                <mat-card-subtitle>{{transformDate(item.datePublished)}} </mat-card-subtitle>
+                <mat-card-subtitle><i class="fa fa-star" aria-hidden="true"> </i>{{item.rating}}</mat-card-subtitle>
+                <img [routerLink]="['/profile', item.authorId]" mat-card-sm-image src={{item.authorMainPhotoUrl}}>
+            </mat-card-title-group>
+            <mat-card-content>
+                {{item.content}}
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+    <div *ngIf="!isReviewed"
+        class="mb-3 inline-flex w-full items-center rounded-lg bg-info-100 px-6 py-5 text-base text-info-800"
+        role="alert">
+        <span class="mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                <path fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                    clip-rule="evenodd" />
+            </svg>
+        </span>
+        Looks like this listing does not have any reviews yet!
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.container {
+    width: 96%;
+    height: auto;
+    /* height: 300px; */
+    top: 40px;
+    bottom: 0px;
+    position: relative;
+    /* background-color: rgb(6, 128, 67); */
+    margin: 8px 8px 0px 8px;
+    padding: 120px 8px 70px 8px;
+    /* right: 3px; */
+    display: flex;
+    flex-direction: column;
+    font-family: Garamond, serif;
+    align-items: center;
+    position: static;
+    overflow: hidden;
+}

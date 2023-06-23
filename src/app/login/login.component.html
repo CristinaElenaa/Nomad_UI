@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div >
+        <form class="form-container" [formGroup]="loginForm" (ngSubmit)="login()">
+            <span class="form-title">Welcome back!</span>
+
+            <!-- <div class="form-group mb-3 w-80">
+                <label for="state" class="d-flex justify-content-around fs-4">Email</label>
+                <input type="text" class="form-control w-100 rounded-5" name="email" 
+                [(ngModel)]="loginModel.email" 
+                placeholder="Email">
+            </div> -->
+            <app-text-input class="rounded-5 bg-primary-600"
+                            [formControl]="$any(loginForm.controls['email'])"
+                            [label]="'Email'"></app-text-input>
+            <!-- <div class="form-group mb-3 w-80">
+                <label for="state" class="d-flex justify-content-around fs-4">Password</label>
+                <input type="text" class="form-control w-100 rounded-5" name="password" 
+                [(ngModel)]="loginModel.password" 
+                placeholder="Password">
+            </div> -->
+            <app-text-input class="rounded-5 bg-primary-600"
+            [formControl]="$any(loginForm.controls['password'])"
+            [label]="'Password'" type="password"></app-text-input>
+
+            <div class="row" *ngIf="validationErrors">
+                <ul class="text-danger">
+                    <li *ngFor="let error of validationErrors">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" class="submit-button" [disabled]="!loginForm.valid">Login</button>
+            <span class="form-footer">Or create a free account <a routerLink="/register">here</a></span>
+        </form>
+        <div class="image-wrapper">
+            <img src="./assets/loginRegister.png" alt="loginPhoto">
+        </div>
+    </div>
+</div>
+
+

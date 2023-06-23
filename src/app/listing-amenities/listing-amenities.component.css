@@ -1,0 +1,45 @@
+
+.group{
+    font-family: Garamond, sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.plan-container{
+    width: 300px;
+    max-height: 70px;
+    margin: 5px;
+    padding: 8px 8px 8px 20px;
+    font-size: 15px;
+    font-family: Garamond, sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 0.2px rgb(146, 145, 145);
+}
+
+.plan-container p{
+    font-family: Garamond, sans-serif;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    font-family: Garamond, serif;
+    font-size: 25px;
+    margin: 10px 0px 30px 0px;
+    justify-content: center;
+    position: relative;
+    left:32px;
+}
+
+
+
+
+
+
+
+
+  

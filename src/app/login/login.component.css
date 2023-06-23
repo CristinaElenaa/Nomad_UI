@@ -1,0 +1,109 @@
+
+.container {
+    width: 90%;
+    height: 400px;
+    top: 100px;
+    position: relative;
+    background-color: rgb(253, 255, 254);
+    margin: 0px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.form-container {
+    width: 400px;
+    height: 380px;
+    margin: 0px 100px 10px 20px;
+    padding: 00px 10px 10px 10px;
+    left: 70px;
+    right: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    position: relative;
+    border-color: rgb(230, 230, 230);
+    border-radius: 5%;
+    box-shadow: 0 4px 12px 0 rgba(250, 250, 250, 0.2), 0 6px 10px 0 rgba(5, 5, 5, 0.19);
+
+}
+
+.form-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    transition-timing-function: ease-in-out;
+  }
+
+.form-title {
+    font-family: Garamond, serif;
+    font-size: 35px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.form-footer {
+    font-family: Garamond, serif;
+    font-size: 13px;
+    color: dimgray;
+
+}
+
+a{
+    color:black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.input-field {
+    width: 70%;
+    height: 10%;
+    padding: 5px 0;
+    margin: 10px;
+    border: 2px solid rgb(230, 230, 230);
+    padding: 10px 15px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.submit-button {
+    color: white;
+    width: 45%;
+    height: 50px;
+    margin: 20px 10px 0px 10px;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    /* background: linear-gradient(to right, rgb(47, 112, 82), rgb(180, 192, 193)); */
+    background-color: rgb(105, 103, 103);
+    border: 0;
+    outline: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: Garamond, serif;
+
+}
+
+.submit-button:hover {
+    box-shadow: rgba(183, 184, 184, 0.4) 0px 2px 4px,
+        rgba(161, 159, 159, 0.3) 0px 7px 13px -3px,
+        rgba(116, 115, 116, 0.2) 0px -3px 0px inset;
+}
+
+.image-wrapper{
+    position: relative;
+    width:50%;
+    height: 10px;
+    left:420px;
+    bottom:220px;
+
+
+    /* width: 50px;
+    height: 10px;
+    left: 370px;
+    bottom:220px; */
+}
+
+img{
+    height:240px;
+}

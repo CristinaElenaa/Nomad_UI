@@ -1,0 +1,9 @@
+<div
+  style="width: 100%;display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: -10px;">
+  <app-image-upload (filesSelected)="onFilesSelected($event)" [sentFiles]="selectedFiles"></app-image-upload>
+  <div class="buttons">
+    <button class="button-17" style="background-color:rgb(146, 174, 98)" (click)="uploadPhoto()">Done</button>
+    <button class="button-17" style="background-color:rgb(174, 127, 98)" (click)="closeModal()" routerLink="/edit/profile">Cancel</button>
+  </div>
+
+</div>

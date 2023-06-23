@@ -1,0 +1,40 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="location">
+  <!-- <span>Provide a location for your house</span>  -->
+  <form class="example-form" (submit)="emitData()">
+    <p>
+      <mat-form-field class="input-text">
+        <mat-label>Street</mat-label>
+        <input matInput [(ngModel)]="street" (ngModelChange)="emitData()"  name="street" placeholder="Street">
+      </mat-form-field>
+      <mat-form-field class="input-text">
+        <mat-label>Number</mat-label>
+        <input matInput [(ngModel)]="number" (ngModelChange)="emitData()" name="number" placeholder="Number">
+      </mat-form-field>
+      <mat-form-field class="input-text">
+        <mat-label>Postal Code</mat-label>
+        <input matInput [(ngModel)]="postalCode" (ngModelChange)="emitData()" name="Postal Code" placeholder="Postal Code">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="input-text">
+        <mat-label>City</mat-label>
+        <input matInput [(ngModel)]="city" (ngModelChange)="emitData()" name="city" placeholder="City">
+      </mat-form-field>
+
+      <mat-form-field class="input-text">
+        <mat-label>County</mat-label>
+        <input matInput [(ngModel)]="county" (ngModelChange)="emitData()" name="county" placeholder="County">
+      </mat-form-field>
+
+      <mat-form-field class="input-text">
+        <mat-label>Country</mat-label>
+        <input matInput [(ngModel)]="country" (ngModelChange)="emitData()" name="country" placeholder="Country">
+      </mat-form-field>
+
+    </p>
+    <!-- <button type="submit">Submit</button> -->
+  </form>
+
+</div>

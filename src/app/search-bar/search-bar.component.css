@@ -1,0 +1,118 @@
+.form {
+  /* background-color: blueviolet; */
+  margin: auto;
+  margin-bottom: 2px;
+  padding: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  width: 80%;
+  height: 10%;
+  /* height: 70%; */
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  /* box-shadow: 0 4px 8px 0 rgba(250, 250, 250, 0.2), 0 6px 10px 0 rgba(173, 156, 156, 0.19); */
+  cursor: pointer;
+}
+
+.form:hover {
+  box-shadow: 0 4px 5px 0 rgba(250, 250, 250, 0.2), 0 6px 25px 0 rgba(173, 156, 156, 0.19);
+  transition: width 200s;
+  -ms-transition: all .35s linear;
+  -moz-transition: all .35s linear;
+  -webkit-transition: all .35s linear;
+  -o-transition: all .35s linear;
+  cursor: pointer;
+}
+
+.collapsible {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.collapsible.show {
+  max-height: 1000px; 
+} 
+
+.input {
+  /* background-color: rgb(128, 91, 91);  */
+  margin: 0px 3px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 3px 10px;
+  width: 20%;
+  text-align: center;
+  font-size: 18px;
+  font-family: Garamond, serif;
+  /* box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; */
+  /* padding-right: 7px; */
+  /* border-right: 0.2px solid black; */
+  /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+}
+
+.border-right {
+  /* background-color: aqua; */
+  margin: 3px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* border-right: 0.2px solid black; */
+  /* height: 23px; */
+  width: 2%;
+  /* height: 10%; */
+  line-height: 0.5px;
+  font-size: 17px;
+}
+
+.padding-right {
+  padding-right: 15px;
+}
+
+.search-button {
+  background: rgb(96, 59, 141);
+  background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  margin: 5px;
+  padding: 2px;
+  cursor: pointer;
+  width: 10%;
+  /* border-radius: 30px; */
+}
+
+/* .search-button img {
+  background: rgb(96, 59, 141);
+  margin: 5px;
+  padding: 5px;
+  width: 50%;
+  height: 100%;
+
+} */
+.modal-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button[mat-icon-button] {
+  min-width: auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}

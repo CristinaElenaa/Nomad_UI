@@ -1,0 +1,219 @@
+<div style="margin-top: 100px;">
+
+    <form #editUserForm="ngForm" id="editListingForm" (ngSubmit)="updateListing()">
+
+
+
+<!-- <div style="margin-top: 100px; background-color: blueviolet; display: flex; align-items: center;
+flex-wrap: wrap;">
+<span> Let's add'</span>
+    <div style="color: aqua; max-height: max-content; max-width: fit-content; padding: 10px; display: flex; align-items: center;
+    ">
+        <app-about-listing></app-about-listing>
+    </div>
+    
+</div> -->
+
+
+<!-- <div style="margin-top: 100px;">  -->
+
+
+<!-- <div class="mb-6 h-1 w-full bg-neutral-200 dark:bg-neutral-600" [style.width.%]="progress">
+    <div class="h-1 bg-primary"></div>
+  </div> -->
+
+
+<!-- <div class="form-container">
+
+    <div class="content">
+      <section id="section1">
+        <h1>1. Tell us about your place!</h1>
+        <div class="horizontal"><app-about-listing (event)="handleData($event)"></app-about-listing></div>
+        <div class="horizontal"><app-listing-location (event)="handleData($event)"></app-listing-location></div>
+        <div class="horizontal"><app-listing-plan (event)="handleData($event)"></app-listing-plan></div>
+      </section>
+
+      <section id="section2">
+        <h2>2. Let's make your place stand out!</h2>
+        <div class="horizontal"><app-listing-amenities (event)="handleData($event)"></app-listing-amenities></div>
+        <div class="horizontal"><app-listing-add-photos></app-listing-add-photos></div>
+        <div class="horizontal"><app-listing-description (event)="handleData($event)"></app-listing-description></div>
+        <button (click)="scrollToNextSession('section3')">Go to next section</button>
+      </section>
+
+      <section id="section3">
+        <h2>3. Finishing touches!</h2>
+        <div class="horizontal"><app-listing-price (event)="handleData($event)"></app-listing-price></div>
+      </section>
+
+      <button (click)="postListing()">POST</button>
+      <app-prev-next-button-bar (click)="openDialog()" style="margin-bottom: 4000px;">
+
+      </app-prev-next-button-bar>
+    </div>
+  </div>
+
+</div>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-top: 100px;">
+
+    <mat-stepper orientation="vertical">
+      <mat-step>
+        <ng-template matStepLabel>Tell us about your place</ng-template>
+        <ng-template matStepContent>
+  
+          <mat-stepper orientation="vertical">
+            <mat-step>
+              <ng-template matStepLabel>Change privacy type and structure</ng-template>
+              <ng-template matStepContent>
+                <div class="horizontal"><app-about-listing (event)="handleData($event)"></app-about-listing></div>
+                <button mat-button matStepperNext>Next</button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Change the address</ng-template>
+              <ng-template matStepContent>
+                <div class="horizontal"><app-listing-location (addressChanged)="addressChangedHandler($event)"></app-listing-location></div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Change Floor plan</ng-template>
+              <div class="horizontal"><app-listing-plan (planChanged)="planChangedHandler($event)"></app-listing-plan></div>
+              <button mat-button matStepperPrevious>Back</button>
+            </mat-step>
+          </mat-stepper>
+  
+          <button mat-button matStepperNext>Next</button>
+        </ng-template>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Make it stand out</ng-template>
+        <ng-template matStepContent>
+          <mat-stepper orientation="vertical">
+            <mat-step>
+              <ng-template matStepLabel>Change Amenities</ng-template>
+              <ng-template matStepContent>
+                <div class="horizontal"><app-listing-amenities (amenitiesChanged)="amenitiesChangedHandler($event)"></app-listing-amenities></div>
+                <button mat-button matStepperNext>Next</button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Add Photos</ng-template>
+              <ng-template matStepContent>
+                <div class="horizontal"><app-listing-add-photos (photosChanged)="photosChangedHandler($event)"></app-listing-add-photos></div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Description</ng-template>
+              <div class="horizontal"><app-listing-description (contentChanged)="contentChangeHandler($event)"></app-listing-description>
+              </div>
+              <button mat-button matStepperPrevious>Back</button>
+            </mat-step>
+          </mat-stepper>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </ng-template>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Finish and Update</ng-template>
+        <div class="horizontal"><app-listing-price (priceChangedEvent)="countChangedHandler($event)"></app-listing-price></div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="updateListing()">Update</button>
+      </mat-step>
+    </mat-stepper>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+
+
+
+
+        <!-- <div class="details-card">
+            <span class="bottom-border">Name
+
+               <input type="text" aria-label="First name" style="margin: 2px 5px;" placeholder="First-Name"
+                    value={{listing.name}} [(ngModel)]="listing.name" name="name"
+                    class="rounded-0 relative m-2 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                <input type="text" aria-label="Last name" placeholder="Last-Name" name="lastName"
+                    [(ngModel)]="listing.description" value={{listing.description}}
+                    class="relative m-0 -ml-px block w-[1px] min-w-0 flex-auto rounded-r border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" /> 
+            </span>
+
+            <span class="bottom-border">Number
+
+                 <input type="text" aria-label="Email" style="margin: 2px 5px;" placeholder="Number"
+                    value={{listing.number}} [(ngModel)]="listing.number" name="number"
+                    class="rounded-0 relative m-2 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" /> 
+            </span>
+            <span class="bottom-border">Street
+                <input type="text" aria-label="street" style="margin: 2px 5px;"
+                    placeholder="Street" value={{listing.street}} name="street"
+                    [(ngModel)]="listing.street"
+                    class="rounded-0 relative m-2 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+
+            </span>
+            <span style="display: flex; align-items: center; justify-content: center;">City
+                <span>
+                    <input type="text" aria-label="city" style="margin: 2px 5px;" placeholder="City"
+                        value={{listing.city}} [(ngModel)]="listing.city" name="city"
+                        class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                </span>
+
+                <span>
+                    <input type="text" label="County" aria-label="County"
+                        style="margin: 2px 5px; width: 1%;" placeholder="County" value={{listing.county}}
+                        [(ngModel)]="listing.county" name="county"
+                        class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                </span>
+
+                <span>
+                    <input type="text" aria-label="PostalCode" style="margin: 2px 5px;"
+                        placeholder="Postal Code" value={{listing.postalCode}}
+                        [(ngModel)]="listing.postalCode" name="postalCode"
+                        class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                </span>
+
+                <span>
+                    <input type="text" aria-label="Country" style="margin: 2px 5px;" placeholder="Country"
+                        name="country" value={{listing.city}} [(ngModel)]="listing.country"
+                        class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                </span> -->
+
+                <!-- <span>
+                    <input type="text" aria-label="County" style="margin: 2px 5px;" placeholder="County"
+                        name="county" value={{member.county}} [(ngModel)]="member.county"
+                        class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                </span>
+
+                <span>
+                    <input type="text" aria-label="Country" style="margin: 2px 5px;" placeholder="Country"
+                        name="country" value={{member.country}} [(ngModel)]="member.country"
+                        class="rounded-0 relative m-0 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
+                </span> -->
+            <!-- </span>
+        </div> -->
+    </form>
+
+</div>

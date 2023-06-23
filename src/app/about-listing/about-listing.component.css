@@ -1,0 +1,78 @@
+.container {
+    width: 96%;
+    height: 300px;
+    top: 80px;
+    bottom: 0px;
+    position: relative;
+    /* background-color: rgb(6, 128, 67); */
+    margin: 8px 8px 1px 8px;
+    padding: 60px 8px 0px 8px;
+    right: 3px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: Garamond, serif;
+}
+
+.page{
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+}
+
+.text{
+    font-family: Garamond, serif;
+    color: black;
+}
+
+.option{
+    /* background-color: transparent; */
+    align-items: center;
+}
+
+.type {
+    /* background-color: blue;  */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    font-size: 15px;
+    margin: 10px 10px 10px 10px;
+    /* border: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: black; */
+    align-items: center;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 10px;
+}
+
+.form-group {
+    /* background-color: aquamarine; */
+    margin: 10px;
+    padding: 5px;
+    /* left: 100px; */
+    position: relative;
+    font-size: 20px;
+}
+
+.form-control{
+    /* background-color: burlywood; */
+    margin: 5px;
+    padding: 10px;
+    border: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color:black;
+    font-size:12px;
+    align-items: center;
+}
+
+span {
+    /* background-color: brown; */
+    display: flex;
+    align-items: center;
+    font-family: Garamond, serif;
+    font-size: 20px;
+}

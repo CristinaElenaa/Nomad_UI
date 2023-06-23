@@ -1,0 +1,45 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <span>Provide more details regarding the plan of the listing </span>  -->
+<div class="cont">
+    <div style="display: flex; flex-direction: row;">
+        <div class="plan-container">
+            <p>Guests</p>
+            <div class="quantity">
+                <button class="quantity-btn quantity-minus" (click)="decrementGuestsQuantity()"></button>
+                <input type="number" class="quantity-input" [(ngModel)]="guestsQuantity" min="1">
+                <button class="quantity-btn quantity-plus" (click)="incrementGuestsQuantity()"></button>
+            </div>
+        </div>
+
+        <div class="plan-container">
+            <p>Bedrooms</p>
+            <div class="quantity">
+                <button class="quantity-btn quantity-minus" (click)="decrementBedroomsQuantity()"></button>
+                <input type="number" class="quantity-input" [(ngModel)]="bedroomsQuantity" min="1">
+                <button class="quantity-btn quantity-plus" (click)="incrementBedroomsQuantity()"></button>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row;">
+        <div class="plan-container">
+            <p>Beds</p>
+            <div class="quantity">
+                <button class="quantity-btn quantity-minus" (click)="decrementBedsQuantity()"></button>
+                <input type="number" class="quantity-input" [(ngModel)]="bedsQuantity" min="1">
+                <button class="quantity-btn quantity-plus" (click)="incrementBedsQuantity()"></button>
+            </div>
+        </div>
+
+        <div class="plan-container">
+            <p>Bathrooms</p>
+            <div class="quantity">
+                <button class="quantity-btn quantity-minus" (click)="decrementBathroomsQuantity()"></button>
+                <input type="number" class="quantity-input" [(ngModel)]="bathroomsQuantity" min="1">
+                <button class="quantity-btn quantity-plus" (click)="incrementBathroomsQuantity()"></button>
+            </div>
+        </div>
+    </div>
+    <!-- <button (click)="emitData()">Submit</button> -->
+</div>

@@ -1,0 +1,142 @@
+<!-- <div style="margin-top: 100px; background-color: blueviolet; display: flex; align-items: center;
+flex-wrap: wrap;">
+<span> Let's add'</span>
+    <div style="color: aqua; max-height: max-content; max-width: fit-content; padding: 10px; display: flex; align-items: center;
+    ">
+        <app-about-listing></app-about-listing>
+    </div>
+    
+</div> -->
+
+
+<!-- <div style="margin-top: 100px;">  -->
+
+
+<!-- <div class="mb-6 h-1 w-full bg-neutral-200 dark:bg-neutral-600" [style.width.%]="progress">
+    <div class="h-1 bg-primary"></div>
+  </div> -->
+
+
+<!-- <div class="form-container">
+
+    <div class="content">
+      <section id="section1">
+        <h1>1. Tell us about your place!</h1>
+        <div class="horizontal"><app-about-listing (event)="handleData($event)"></app-about-listing></div>
+        <div class="horizontal"><app-listing-location (event)="handleData($event)"></app-listing-location></div>
+        <div class="horizontal"><app-listing-plan (event)="handleData($event)"></app-listing-plan></div>
+      </section>
+
+      <section id="section2">
+        <h2>2. Let's make your place stand out!</h2>
+        <div class="horizontal"><app-listing-amenities (event)="handleData($event)"></app-listing-amenities></div>
+        <div class="horizontal"><app-listing-add-photos></app-listing-add-photos></div>
+        <div class="horizontal"><app-listing-description (event)="handleData($event)"></app-listing-description></div>
+        <button (click)="scrollToNextSession('section3')">Go to next section</button>
+      </section>
+
+      <section id="section3">
+        <h2>3. Finishing touches!</h2>
+        <div class="horizontal"><app-listing-price (event)="handleData($event)"></app-listing-price></div>
+      </section>
+
+      <button (click)="postListing()">POST</button>
+      <app-prev-next-button-bar (click)="openDialog()" style="margin-bottom: 4000px;">
+
+      </app-prev-next-button-bar>
+    </div>
+  </div>
+
+</div>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="margin-top: 100px;">
+
+  <mat-stepper orientation="vertical">
+    <mat-step>
+      <ng-template matStepLabel>Tell us about your place</ng-template>
+      <ng-template matStepContent>
+
+        <mat-stepper orientation="vertical">
+          <mat-step>
+            <ng-template matStepLabel>Privacy and structure</ng-template>
+            <ng-template matStepContent>
+              <div class="horizontal"><app-about-listing (event)="handleData($event)"></app-about-listing></div>
+              <button mat-button matStepperNext>Next</button>
+            </ng-template>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Address</ng-template>
+            <ng-template matStepContent>
+              <div class="horizontal"><app-listing-location (addressChanged)="addressChangedHandler($event)"></app-listing-location></div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </ng-template>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Floor plan</ng-template>
+            <div class="horizontal"><app-listing-plan (planChanged)="planChangedHandler($event)"></app-listing-plan></div>
+            <button mat-button matStepperPrevious>Back</button>
+          </mat-step>
+        </mat-stepper>
+
+        <button mat-button matStepperNext>Next</button>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Make it stand out</ng-template>
+      <ng-template matStepContent>
+        <mat-stepper orientation="vertical">
+          <mat-step>
+            <ng-template matStepLabel>Amenities</ng-template>
+            <ng-template matStepContent>
+              <div class="horizontal"><app-listing-amenities (amenitiesChanged)="amenitiesChangedHandler($event)"></app-listing-amenities></div>
+              <button mat-button matStepperNext>Next</button>
+            </ng-template>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Photos</ng-template>
+            <ng-template matStepContent>
+              <div class="horizontal"><app-listing-add-photos (photosChanged)="photosChangedHandler($event)"></app-listing-add-photos></div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </ng-template>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Description</ng-template>
+            <div class="horizontal"><app-listing-description (contentChanged)="contentChangeHandler($event)"></app-listing-description>
+            </div>
+            <button mat-button matStepperPrevious>Back</button>
+          </mat-step>
+        </mat-stepper>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Finish and publish</ng-template>
+      <div class="horizontal"><app-listing-price (priceChangedEvent)="countChangedHandler($event)"></app-listing-price></div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="postListing()">Publish</button>
+    </mat-step>
+  </mat-stepper>
+
+
+
+
+
+
+
+</div>

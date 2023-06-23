@@ -1,0 +1,60 @@
+<div class="mod-style">
+  <mat-dialog-content>
+    <div class="modal-content">
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <p>Look for a unit</p>
+        <div class="p-1 m-3 bg-light rounded rounded-pill shadow-sm mb-4">
+          <div class="input-group">
+            <input type="search" placeholder="House" [(ngModel)]="listingName" name="listingName"
+              aria-describedby="button-addon1" class="form-control border-0 bg-light  rounded-5">
+            <div class="input-group-append">
+              <button id="button-addon1" type="submit" class="btn btn-link text-primary icon"
+                (click)="searchListingByName(listingName)"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="display: flex; flex-direction: row; flex-wrap: wrap; align-content: center; justify-content: space-between; align-items: center;"
+        class="w-150 ">
+        <p>Or tailor to your needs</p>
+        <div class="form-group w-40 fs-3 m-2 " style="height:2.5rem;">
+          <input type="text" class="form-control w-100 rounded-5 bg-light shadow-sm border-0" name="city"
+            [(ngModel)]="listingCity" placeholder="Destination">
+        </div>
+
+        <div class="form-group w-30 m-2" style="height:2.5rem;">
+          <input type="text" placeholder="Add Dates" name="dates" [(ngModel)]="dates"
+            class="form-control w-100 rounded-5 bg-light shadow-sm border-0" bsDaterangepicker
+            [bsConfig]="{ isAnimated: true }">
+        </div>
+        <button (click)="showDates()">DATES</button>
+
+        <div>
+          <div style="width:30%; height:2.5rem; display: flex; flex-direction: row; align-items: center;"
+            class="w-100 mt-3 mb-3">
+            <div class="quantity form-control w-100 rounded-5 m-2 shadow-sm bg-light border-0">
+              <button mat-icon-button (click)="decreaseCapacity()" class="quantity-btn quantity-minus">
+              </button>
+              <span [(ngModel)]="capacity">{{ capacity }}</span>
+              <button mat-icon-button (click)="increaseCapacity()" class="quantity-btn quantity-plus">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button (click)="closeModal()" class="btn btn-danger btn-circle m-1">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+    <button class="btn btn-dark btn-circle m-1"
+      (click)="searchListingByFilters(listingCity, dates, capacity)">
+      <i class="fa fa-search"></i></button>
+  </mat-dialog-actions>
+</div>

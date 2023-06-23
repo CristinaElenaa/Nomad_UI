@@ -1,0 +1,113 @@
+.container {
+    width: 96%;
+    height: auto;
+    /* top: 40px; */
+    bottom: 0px;
+    position: relative;
+    /* background-color: rgb(6, 128, 67); */
+    margin: 8px 8px 0px 8px;
+    padding: 10px 8px 70px 8px;
+    display: flex;
+    flex-direction: column;
+    font-family: Garamond, serif;
+    align-items: center;
+    position: static;
+    overflow: hidden;
+}
+
+.upper-container {
+    /* background-color: aliceblue; */
+    width: 96%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: static;
+    overflow: hidden;
+}
+
+.right-container {
+    margin: 8px;
+    padding: 10px 5px 5px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* background-color: bisque; */
+}
+
+.card {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.card img {
+    width: 170px;
+    height: 170px;
+    border-radius: 90px;
+}
+
+.left-container {
+    margin: 8px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* background-color: aqua; */
+}
+
+.details-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+    height: fit-content;
+}
+
+.details-card span {
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 18%;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    align-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+    /* background-color: #34373a; */
+}
+
+.bottom-border {
+    border-bottom: 0.5px solid black;
+}
+
+.details-card p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: antiquewhite; */
+    width: 80%;
+    /* justify-content: space-around; */
+    padding: 10px;
+    font-weight: normal;
+}
+
+.address-p {
+    width: 5%;
+    margin: 11px;
+}

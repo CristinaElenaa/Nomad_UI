@@ -1,0 +1,37 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div>
+    <div>
+        <div class="container">
+            <div class="upper-container">
+                <div class="right-container">
+                    <div class="card">
+                        <img  src={{user.photoUrl}}>
+                        <p>{{user.firstName}}</p>
+                        <button *ngIf="isLoggedIn()" class="button-17" routerLink="/edit/profile">Edit Profile</button>
+                    </div>
+                </div>
+    
+                <div class="left-container">
+                    <div class="details-card">
+                        <span class="bottom-border">Full Name
+                            <p>{{user.firstName}} {{user.lastName}}</p>
+                        </span>
+                        <span class="bottom-border">Email
+                            <p>{{user.email}}</p>
+                        </span>
+                        <span class="bottom-border">Phone
+                            <p>{{user.phoneNumber}}</p>
+                        </span>
+                        <span>
+                            Address
+                            <p>Number {{user.number}}, Street {{user.street}}, {{user.city}},
+                             {{user.county}}, {{user.country}}, {{user.postalCode}}</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+                <div class="down-container" >
+                    <app-review-card [id]="user.id" ></app-review-card>
+                </div>
+        </div>
+    </div>

@@ -1,0 +1,21 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+            <div class="type"> 
+                <span>Which of these types best describes your place?</span>
+                <mat-form-field class="px-3">
+                    <mat-label>Choose house type</mat-label>
+                    <mat-select [(ngModel)]="listingType" (selectionChange)="emitData()">
+                      <mat-option value="one" *ngFor="let type of homeTypeList"  [value]="type">{{type}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div> 
+
+            <div class="type">
+                <span>Which of these privacy types best describes your place?</span>
+                <mat-form-field>
+                    <mat-label>Choose Privacy type</mat-label>
+                    <mat-select [(ngModel)]="privacyType" (selectionChange)="emitData()">
+                      <mat-option value="one" *ngFor="let type of privacyTypeList"  [value]="type" >{{type}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              
+            </div>
